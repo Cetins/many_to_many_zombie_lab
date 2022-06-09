@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Zombie</h2>
+
+<form action="/zombies" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="zombie-type">Zombie Type:</label>
+        <select name="zombie_type_id" id="zombie-type">
+            {% for zombie_type in zombie_types %}
+            <option value="{{ zombie_type.id }}">
+                {{ zombie_type.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

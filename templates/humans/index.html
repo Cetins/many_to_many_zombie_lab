@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Humans</h2>
+
+{% for human in humans %}
+
+<section>
+    <p>{{ human.name }}</p>
+    <a href="/humans/{{ human.id }}/edit"></a>
+    <form action="/humans/{{ human.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}
